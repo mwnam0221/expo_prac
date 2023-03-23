@@ -21,6 +21,7 @@ opt = vis.get_render_option()
 opt.background_color = np.asarray([0, 0, 0])
 opt.point_size = 1.5
 
+
 for index, (img_path, depth_path) in enumerate(zip(img_path_list, depth_path_list)):
     print(img_path)
     # Load RGB image and depth map
@@ -57,6 +58,8 @@ for index, (img_path, depth_path) in enumerate(zip(img_path_list, depth_path_lis
     vis.update_geometry(pcd)
     vis.poll_events()
     vis.update_renderer()
+    # vis.capture_screen_image(f'./results/save_{index}.png')
+
     time.sleep(1)
     # vis.run()
     vis.clear_geometries()

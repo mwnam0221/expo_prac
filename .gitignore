@@ -1,0 +1,13 @@
+/.idea/
+*/__pycache__
+*/.ipynb_checkpoints
+
+
+*.png
+*.pth
+*.pt
+*.ckpt
+*.jpg
+*.ckpt
+
+*.gif

@@ -1,0 +1,71 @@
+# Camera properties
+RECTIFY_IMAGE: False
+
+
+INTRINSIC_MATRIX  : [409.171547, 0.000000, 324.647766,
+0.000000, 411.284637, 252.862042,
+0.000000, 0.000000, 1.000000]
+DISTORTION_COEFFICIENTS: [-0.348895, 0.098130, -0.001249, -0.002630, 0.000000]
+
+
+# INTRINSIC_MATRIX  : [409.030736, 0.000000, 320.158594,
+#                             0.000000, 409.427039, 241.064761,
+#                             0.000000, 0.000000, 1.000000]
+# DISTORTION_COEFFICIENTS: [-0.357612, 0.106613, -0.000291, -0.002065, 0.000000]
+
+# App properties
+MAX_DEPTH: 15  #15
+MIN_DEPTH: 1e-3
+BENCHMARK: True
+IMAGE_DOWN: [512, 640]
+BUFFER: 1
+WEIGHTED_FRAME: 1
+CONFIDENCE_THRESHOLD: 0.45
+IOU_THRESHOLD: 0.3
+
+# Optimization
+OPTIMIZATION_MODE: 'heuristic' # norm 
+AREA_DELTA: 1000
+# AREA_SCALE_FACTOR_1: 0.35
+# AREA_SCALE_FACTOR_2: 0.485
+AREA_SCALE_FACTOR_1: 0.4
+AREA_SCALE_FACTOR_2: 0.48
+
+
+ALPHA: 0.9
+BETA: 0.1
+GAMMA: 2
+
+
+# Depth Model
+DEPTH:
+  CUSTOM: True # Change to "False" if you want to use pre-trained NeWCRFs.
+  ENCODER_PATH: './model/swin_large_patch4_window7_224_22k.pth'
+  NEWCRFS_CHECKPOINT_PATH: './model/model_nyu.ckpt'   #model_kittieigen.ckpt, model_nyu.ckpt
+  CUSTOM_CHECKPOINT_PATH:  './model/model-50500-best_rms_0.11443'
+
+# GPS
+URL_GRID: "https://0.0.0.0:8000/grid"
+URL_CAM: "https://0.0.0.0:8000/camera"
+WRITE_JSON: False
+
+# Save image
+SAVE_IMAGE: False
+SAVE_VIDEO: False
+VIZ_V2 : True
+
+
+# Deepsort
+DEEPSORT:
+  REID_CKPT: "src/detection_engine/backends/deep_sort_pytorch/deep_sort/deep/checkpoint/ckpt.t7"
+  MAX_DIST: 0.2
+  MIN_CONFIDENCE: 0.1
+  NMS_MAX_OVERLAP: 0.3
+  MAX_IOU_DISTANCE: 0.7
+  MAX_AGE: 70
+  N_INIT: 3
+  NN_BUDGET: 100
+
+
+# DEBUG
+DEBUG: False
